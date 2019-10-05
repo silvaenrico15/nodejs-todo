@@ -7,7 +7,7 @@ module.exports = class Todolist {
 
     save() {
         return db.execute(
-            'INSERT INTO todoTable (message) VALUES (?)',
+            'INSERT INTO listtable (message) VALUES (?)',
             [this.message]
           );
     }
@@ -15,7 +15,7 @@ module.exports = class Todolist {
     static deleteById(id) {}
 
     static fetchAll() {
-        return db.execute('SELECT * FROM todoTable');
+        return db.execute('SELECT * FROM listtable');
     }
 
   //  static findById(id) {

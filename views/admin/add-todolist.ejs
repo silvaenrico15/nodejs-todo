@@ -1,0 +1,58 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+        
+    <section class="section">
+        <div class="container">
+            <div>
+                <form class="product-form" action="add-product" method="POST">
+                    <div class="field">
+                        <label class="label">Message</label>
+                        <div class="control">
+                            <input class="input is-primary" type="text" name="title">
+                        </div>
+                    </div>
+           
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-link" type="submit">Add Todo List</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+  
+    </section>
+    <section class="section">
+
+    <div class="container">
+            <% if (prods.length > 0) { %>
+                <% for (let product of prods) { %>
+        <div class="columns is-full">
+            
+         
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4"><%=product.message%></p>
+                            </div>
+                   
+                        </div>
+                </div>
+                
+            </div>
+            <% } %>
+    </div>
+         
+            <% } else { %>
+            <h1>No To Do List Found!</h1>
+            <% } %>
+        </div>
+    </div>
+    </section>
+    <%- include('../includes/scripts.ejs') %>
+</body>
+
+</html>

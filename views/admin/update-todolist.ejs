@@ -1,0 +1,55 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/nav.ejs') %>
+        
+    <section class="section">
+            <div class="container">
+            <div class="level">
+                <form class="product-form" action="/list/<%=list.id%>" method="POST">
+                  <input hidden value="<%=list.id%>" name="id">
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                          <label class="label">Date</label>
+                        </div>
+                        <div class="field-body">
+                          <div class="field">
+                            <p class="control">
+                              <input class="input is-small"  value="<%=list.date%>" type="text" placeholder="03/15/1994" name="date">
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                          <label class="label">Task</label>
+                        </div>
+                        <div class="field-body">
+                          <div class="field">
+                            <p class="control">
+                              <textarea class="textarea" type="text"  name="message" ><%=list.message%></textarea>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="field is-horizontal">
+                        <div class="field-body">
+                                <div class="field-label is-normal">
+                                         </div>
+                          <div class="field">
+                            <p class="control">
+                            
+                             <button type="submit" class="button is-link">Update</button> 
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+    </section>
+    
+    <%- include('../includes/scripts.ejs') %>
+</body>
+
+</html>

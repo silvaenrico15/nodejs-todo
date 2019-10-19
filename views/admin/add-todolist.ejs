@@ -5,56 +5,80 @@
     <%- include('../includes/nav.ejs') %>
         
     <section class="section">
-        <div class="container">
-            <div>
-                <form class="product-form" action="add-product" method="POST">
-                    <div class="field">
-                        <label class="label">Message</label>
-                        <div class="control">
-                         
-                            <textarea class="textarea is-info" type="text" name="title"></textarea>
+            <div class="container">
+            <div class="level">
+                <form class="product-form" action="/list" method="POST">
+                    <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                          <label class="label">Date</label>
                         </div>
-                    </div>
-           
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-link" type="submit">Add To-Do List</button>
+                        <div class="field-body">
+                          <div class="field">
+                            <p class="control">
+                              <input class="input is-small" type="text" placeholder="03/15/1994" name="date">
+                            </p>
+                          </div>
                         </div>
-                    </div>
-                </form>
+                      </div>
+                      
+                      <div class="field is-horizontal">
+                        <div class="field-label is-normal">
+                          <label class="label">Task</label>
+                        </div>
+                        <div class="field-body">
+                          <div class="field">
+                            <p class="control">
+                              <textarea class="textarea" type="text" name="message" ></textarea>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="field is-horizontal">
+                        <div class="field-body">
+                                <div class="field-label is-normal">
+                                         </div>
+                          <div class="field">
+                            <p class="control">
+                            
+                             <button type="submit" class="button is-link">Add Task</button> 
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">     
+                        <thead>
+                          <tr>
+                            <th><abbr title="#">Task #</abbr></th>
+                            
+                            <th><abbr title="Date">Date</abbr></th>
+                            <th><abbr title="Task">Task</abbr></th>
+                            <th><abbr title="Modify"></abbr></th>
+                          </tr>
+                        </thead>
+                        <% if (list.length > 0) { %>
+                            <% for (let task of list) { %>
+                        <tbody>
+                            
+                          <tr>
+                            <th><%=task.id%></th>
+                            <td><%=task.date%></td>
+                            <td><%=task.message%></td>
+                            <td><a href="list/<%=task.id%>/update"><i class="mdi mdi-16px mdi-lead-pencil"></i></a><a href="/<%=task.id%>"><i class="mdi mdi-16px mdi-trash-can-outline"></i></a></td>
+                            <% } %>
+                            <% } else { %>
+                            <% } %>     
+                        </tr>
+                           
+                        </tbody>
+                        
+                      </table>
+                   
+                    </form>
+    
+</div>
             </div>
-        </div>
-  
     </section>
-    <section class="section">
-
-    <div class="container">
-            <% if (prods.length > 0) { %>
-                <% for (let product of prods) { %>
-        <div class="columns is-full">
-            
-         
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-4"><%=product.message%></p>
-                            </div>
-                            <div class="control">
-                                <button class="button is-link" type="submit">delete</button>
-                            </div>
-                        </div>
-                </div>
-                
-            </div>
-            <% } %>
-    </div>
-         
-            <% } else { %>
-            <h1>No To Do List Found!</h1>
-            <% } %>
-        </div>
-    </div>
-    </section>
+    
     <%- include('../includes/scripts.ejs') %>
 </body>
 

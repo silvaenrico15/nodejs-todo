@@ -4,7 +4,7 @@
   "description": "Pre-Practical Exam",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/silvaenrico15/nodejs-todo#readme",
   "dependencies": {
-    "@mdi/font": "^4.4.95",
+    "@mdi/font": "^4.5.95",
     "bulma": "^0.7.5",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
